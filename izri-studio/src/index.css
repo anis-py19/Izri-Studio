@@ -1,1 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
 @import "tailwindcss";
+
+@theme {
+  /* ── Core Palette ────────────────────────── */
+  --color-primary-dark: #1a1a2e;
+  --color-primary-light: #f5f0e8;
+  --color-accent: #c8956c;
+  --color-accent-dark: #8b6914;
+  --color-accent-hover: #d4a57a;
+  --color-bg: #fafaf5;
+  --color-bg-alt: #f0ebe1;
+  --color-surface: #ffffff;
+  /* ── Text ────────────────────────────────── */
+  --color-text-heading: #1a1a2e;
+  --color-text-body: #2d2d3f;
+  --color-text-muted: #6b6b7b;
+  --color-text-on-dark: #f5f0e8;
+  --color-text-on-accent: #ffffff;
+  /* ── Interactive ─────────────────────────── */
+  --color-link: #4a3f8a;
+  --color-link-hover: #c8956c;
+  --color-link-active: #8b6914;
+  --color-link-visited: #6b5aa0;
+  /* ── UI Elements ─────────────────────────── */
+  --color-border: #e0dbd1;
+  --color-border-subtle: #ede8df;
+  --color-divider: #d9d3c7;
+  --color-shadow: rgba(26, 26, 46, 0.08);
+  /* ── Buttons ─────────────────────────────── */
+  --color-btn-primary-bg: #1a1a2e;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-hover: #2a2a44;
+  --color-btn-secondary-bg: transparent;
+  --color-btn-secondary-text: #1a1a2e;
+  --color-btn-secondary-border: #1a1a2e;
+  --color-btn-accent-bg: #c8956c;
+  --color-btn-accent-text: #ffffff;
+  --color-btn-accent-hover: #d4a57a;
+  /* ── Status ──────────────────────────────── */
+  --color-success: #4a7c59;
+  --color-warning: #c8956c;
+  --color-error: #b85450;
+  /* ── Decorative ──────────────────────────── */
+  --color-highlight: #c4848a;
+  --color-gradient-start: #1a1a2e;
+  --color-gradient-end: #4a3f8a;
+}
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
+}
+p,
+li,
+a,
+button {
+  font-family: "Inter", sans-serif;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
