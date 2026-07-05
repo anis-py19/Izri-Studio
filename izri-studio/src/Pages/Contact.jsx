@@ -104,7 +104,7 @@ function Contact() {
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20">
           <span className="inline-block text-accent font-semibold tracking-[0.25em] text-xs uppercase mb-2">
-            Get In Touch
+            Gzet In Touch
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-heading leading-tight tracking-tight">
             Contact <span className="text-accent">Us</span>
