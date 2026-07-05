@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @import "tailwindcss";
-
+body {
+  overflow-x: hidden;
+  background-color: #fafaf5;
+}
 @theme {
-  /* ── Core Palette ────────────────────────── */
   --color-primary-dark: #1a1a2e;
   --color-primary-light: #f5f0e8;
   --color-accent: #c8956c;
@@ -58,8 +60,46 @@ a,
 button {
   font-family: "Inter", sans-serif;
 }
+.home {
+  background-image: url("./assets/back.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+::selection {
+  background-color: var(--color-accent);
+}
+
+ 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* ── Animated Gradient Border ────────────── */
+@keyframes border-slide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-border {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #c8956c, #4a3f8a, #c8956c);
+  background-size: 200% 100%;
+  animation: border-slide 3s ease infinite;
 }
