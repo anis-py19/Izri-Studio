@@ -45,17 +45,41 @@ function Contact() {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
-    } else {
-      setFormErrors({});
-      setIsSubmitted(true);
-      // Simulate API call
-      setTimeout(() => {
-        setIsSubmitted(false);
+      return;
+    }
+
+    setFormErrors({});
+    setIsSubmitted(true);
+
+    // ── CONFIGURATION ────────────────────────────────────────────────────────
+    // 1. Go to https://formspree.io/
+    // 2. Create a free account and click "New Form"
+    // 3. Set the target email to: anisrayaneizri@gmail.com
+    // 4. Copy the unique Form ID (e.g. "xmvporyq") and paste it in the variable below:
+    const FORMSPREE_FORM_ID = "mvzjldbd"; 
+    // ─────────────────────────────────────────────────────────────────────────
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
         setFormData({
           name: "",
           email: "",
@@ -63,7 +87,13 @@ function Contact() {
           message: ""
         });
         alert("Thank you! Your message has been sent successfully. We will get back to you within 24 hours.");
-      }, 1000);
+      } else {
+        alert("Oops! There was a problem submitting your form. Please verify that your Formspree ID is set up correctly.");
+      }
+    } catch (error) {
+      alert("Failed to submit form. Please check your network connection and try again.");
+    } finally {
+      setIsSubmitted(false);
     }
   };
 
@@ -74,7 +104,7 @@ function Contact() {
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-20">
           <span className="inline-block text-accent font-semibold tracking-[0.25em] text-xs uppercase mb-2">
-            et In Touch
+            Get In Touch
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-heading leading-tight tracking-tight">
             Contact <span className="text-accent">Us</span>
@@ -209,7 +239,7 @@ function Contact() {
                   <span className="text-xl">✉️</span>
                   <div>
                     <span className="block text-[10px] uppercase text-white/40 tracking-wider">Email Us</span>
-                    <a href="mailto:hello@izristudio.com" className="text-sm hover:text-accent transition-colors duration-300">
+                    <a href="mailto:anisrayaneizri@gmail.com" className="text-sm hover:text-accent transition-colors duration-300">
                       anisrayaneizri@gmail.com
                     </a>
                   </div>
